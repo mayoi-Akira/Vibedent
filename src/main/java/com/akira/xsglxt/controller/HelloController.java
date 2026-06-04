@@ -2,7 +2,7 @@ package com.akira.xsglxt.controller;
 
 import com.akira.xsglxt.common.Result;
 import com.akira.xsglxt.entity.Student;
-import com.akira.xsglxt.mapper.StudentMapper;
+import com.akira.xsglxt.service.StudentService;
 import jakarta.annotation.Resource;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,7 +13,7 @@ import java.util.List;
 public class HelloController {
 
     @Resource
-    private StudentMapper studentMapper;
+    private StudentService studentService;
 
     @GetMapping("/hello")
     public Result<String> hello() {
@@ -22,7 +22,7 @@ public class HelloController {
 
     @GetMapping("/api/students")
     public Result<List<Student>> list() {
-        List<Student> students = studentMapper.selectList(null);
+        List<Student> students = studentService.listAll();
         return Result.ok(students);
     }
 }
