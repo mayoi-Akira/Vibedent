@@ -37,3 +37,6 @@ build/
 
 ### MCP Bridge ###
 .cursor/
+
+### other
+*.png

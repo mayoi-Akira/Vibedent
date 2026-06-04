@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="zh">
+<head>
+    <meta charset="UTF-8">
+    <title>学生列表</title>
+</head>
+<body>
+    <h2>学生列表</h2>
+    <table border="1" cellpadding="8" cellspacing="0">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>姓名</th>
+                <th>年龄</th>
+                <th>年级</th>
+            </tr>
+        </thead>
+        <tbody id="tbody"></tbody>
+    </table>
+
+    <script>
+        fetch('/api/students')
+            .then(res => res.json())
+            .then(data => {
+                const tbody = document.getElementById('tbody');
+                data.forEach(s => {
+                    tbody.innerHTML += `<tr><td>${s.id}</td><td>${s.name}</td><td>${s.age}</td><td>${s.grade}</td></tr>`;
+                });
+            });
+    </script>
+</body>
+</html>

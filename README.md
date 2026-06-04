@@ -45,6 +45,7 @@ erDiagram
         bigint grade_id FK
         varchar class_name
         varchar class_code UK
+        varchar teacher
     }
 
     student {

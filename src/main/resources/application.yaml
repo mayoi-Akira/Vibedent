@@ -10,8 +10,7 @@ spring:
 server:
   port: 8081
 
-mybatis:
-  mapper-locations: classpath:mapper/*.xml
+mybatis-plus:
   type-aliases-package: com.akira.xsglxt.entity
   configuration:
     map-underscore-to-camel-case: true
