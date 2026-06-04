@@ -37,7 +37,7 @@
       <el-col :xs="24" :sm="12" :md="6">
         <div class="stat-card">
           <div class="stat-icon" style="background: linear-gradient(135deg, #fa709a 0%, #fee140 100%)">
-            <el-icon><BarChart /></el-icon>
+            <el-icon><Histogram /></el-icon>
           </div>
           <div class="stat-content">
             <div class="stat-value">{{ avgStudentsPerClass }}</div>
@@ -97,7 +97,7 @@
 
 <script setup>
 import { ref, onMounted, computed } from 'vue'
-import { User, Management, Document, BarChart } from '@element-plus/icons-vue'
+import { User, Management, Document, Histogram } from '@element-plus/icons-vue'
 import * as echarts from 'echarts'
 import { getStudentList } from '@/api/student'
 import { getClassList } from '@/api/class'
