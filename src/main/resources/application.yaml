@@ -12,6 +12,7 @@ server:
 
 mybatis-plus:
   type-aliases-package: com.akira.xsglxt.entity
+  mapperLocations: classpath*:mapper/**/*Mapper.xml
   configuration:
     map-underscore-to-camel-case: true
     log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
