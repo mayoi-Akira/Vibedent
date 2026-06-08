@@ -1,115 +1,235 @@
-<p align="center">
-	<img alt="logo" src="https://oscimg.oschina.net/oscnet/up-d3d0a9303e11d522a06cd263f3079027715.png">
-</p>
-<h1 align="center" style="margin: 30px 0 30px; font-weight: bold;">RuoYi v3.9.2</h1>
-<h4 align="center">基于SpringBoot+Vue前后端分离的Java快速开发框架</h4>
-<p align="center">
-	<a href="https://gitee.com/y_project/RuoYi-Vue/stargazers"><img src="https://gitee.com/y_project/RuoYi-Vue/badge/star.svg?theme=dark"></a>
-	<a href="https://gitee.com/y_project/RuoYi-Vue"><img src="https://img.shields.io/badge/RuoYi-v3.9.2-brightgreen.svg"></a>
-	<a href="https://gitee.com/y_project/RuoYi-Vue/blob/master/LICENSE"><img src="https://img.shields.io/github/license/mashape/apistatus.svg"></a>
-</p>
+# 学生管理系统
 
-## 平台简介
+基于 [若依 (RuoYi)](http://ruoyi.vip) 框架二次开发的学生信息管理系统，实现年级、班级、学生的完整 CRUD 管理。
 
-若依是一套全部开源的快速开发平台，毫无保留给个人及企业免费使用。
+> ⚠️ **AI 驱动开发声明**  
+> 本项目**所有代码和文档**均由 AI 生成，无任何人工手写代码。
+>
+> - **AI 模型**：Claude Opus 4.8（Anthropic）+ DeepSeek-V4-Pro
+> - **开发工具**：[Claude Code](https://claude.com/claude-code)（Anthropic 官方 CLI）+ VS Code 插件
+> - **开发方式**：自然语言描述需求 → AI 生成代码 → 人工审核验收
+> - **涵盖范围**：后端实体/Mapper/Service/Controller、前端 Vue 页面/API 层、数据库菜单配置、项目文档（包括本 README）
+>
+> 这是一次完全的 **Vibe Coding** 实践——开发者只需描述"想要什么"，无需手写一行代码。
 
-* 前端采用Vue、Element UI。
-* 后端采用Spring Boot、Spring Security、Redis & Jwt。
-* 权限认证使用Jwt，支持多终端认证系统。
-* 支持加载动态权限菜单，多方式轻松权限控制。
-* 高效率开发，使用代码生成器可以一键生成前后端代码。
-* 阿里云折扣场：[点我进入](http://aly.ruoyi.vip)，腾讯云秒杀场：[点我进入](http://txy.ruoyi.vip)&nbsp;&nbsp;
+---
 
-# 版本分支
+## 系统功能
 
-RuoYi-Vue 后端项目提供 Spring Boot 2.x / 3.x / 4.x 多版本分支的并行维护。
+### 核心业务模块
 
-| 名称              | 说明                      | 地址                                                    |
-| :---------------- | :------------------------ | :------------------------------------------------------ |
-| master 默认分支   | Spring Boot 4.x (JDK 17+) | https://gitee.com/y_project/RuoYi-Vue                   |
-| springboot3 分支  | Spring Boot 3.x (JDK 17+) | https://gitee.com/y_project/RuoYi-Vue/tree/springboot3  |
-| springboot2 分支  | Spring Boot 2.x (JDK 8+)  | https://gitee.com/y_project/RuoYi-Vue/tree/springboot2  |  
+| 模块 | 功能说明 |
+|---|---|
+| 📊 首页仪表盘 | 学生/班级/年级统计概览 + 快捷入口 |
+| 👨‍🎓 学生管理 | 学生信息 CRUD，支持按学号、姓名、性别、班级筛选 |
+| 🏫 班级管理 | 班级信息 CRUD，关联年级下拉选择 |
+| 🎓 年级管理 | 年级信息 CRUD |
 
-RuoYi-Vue 前端项目提供 Vue 2.x / 3.x / JavaScript TypeScript 版本均可混用搭配
+### 系统管理（保留自若依框架）
 
-| 项目名称      | **RuoYi-Vue** | **RuoYi-Vue3** | **RuoYi-Vue3-TypeScript**   |
-| :---          | :---          | :---           | :---                        |
-| **前端框架**  | Vue 2        | Vue 3          | Vue 3                       |
-| **脚本语言**  | JavaScript   | JavaScript     | TypeScript                  |
-| **构建工具**  | Vue CLI      | Vite           | Vite                        |
-| **UI 组件库** | Element UI   | Element Plus   | Element Plus                |
-| **状态管理**  | Vuex         | Pinia          | Pinia                       |
-| **路由管理**  | Vue Router 3 | Vue Router 4   | Vue Router 4                |
-| **核心特点**  | 1. 技术栈经典稳定<br>2. 社区资料丰富<br>3. 当前维护重心已转移 | 1. 现代前端技术栈<br>2. 开发体验与性能更优<br>3. 官方主推的活跃版本 | 1. 类型加持，减少沟通成本<br>2. 开发时有提示，效率更高<br>3. 多人协作企业级开发项目 |
-| **仓库地址**  | [RuoYi-Vue](https://gitee.com/y_project/RuoYi-Vue) | [RuoYi-Vue3](https://gitcode.com/yangzongzhuan/RuoYi-Vue3) | [RuoYi-Vue3-TypeScript](https://gitcode.com/yangzongzhuan/RuoYi-Vue3/tree/typescript) |
+| 模块 | 说明 |
+|---|---|
+| 用户管理 | 系统用户 CRUD + 角色分配 |
+| 角色管理 | 角色权限配置 + 用户分配 |
+| 菜单管理 | 动态菜单/路由配置 |
+| 部门管理 | 组织架构树 |
+| 岗位管理 | 岗位字典维护 |
+| 字典管理 | 系统字典类型与数据 |
+| 参数设置 | 系统参数配置 |
+| 通知公告 | 系统通知发布 |
+| 日志管理 | 操作日志 + 登录日志 |
 
-## 内置功能
+### 系统监控（保留自若依框架）
 
-1.  用户管理：用户是系统操作者，该功能主要完成系统用户配置。
-2.  部门管理：配置系统组织机构（公司、部门、小组），树结构展现支持数据权限。
-3.  岗位管理：配置系统用户所属担任职务。
-4.  菜单管理：配置系统菜单，操作权限，按钮权限标识等。
-5.  角色管理：角色菜单权限分配、设置角色按机构进行数据范围权限划分。
-6.  字典管理：对系统中经常使用的一些较为固定的数据进行维护。
-7.  参数管理：对系统动态配置常用参数。
-8.  通知公告：系统通知公告信息发布维护。
-9.  操作日志：系统正常操作日志记录和查询；系统异常信息日志记录和查询。
-10. 登录日志：系统登录日志记录查询包含登录异常。
-11. 在线用户：当前系统中活跃用户状态监控。
-12. 定时任务：在线（添加、修改、删除)任务调度包含执行结果日志。
-13. 代码生成：前后端代码的生成（java、html、xml、sql）支持CRUD下载 。
-14. 系统接口：根据业务代码自动生成相关的api接口文档。
-15. 服务监控：监视当前系统CPU、内存、磁盘、堆栈等相关信息。
-16. 缓存监控：对系统的缓存信息查询，命令统计等。
-17. 在线构建器：拖动表单元素生成相应的HTML代码。
-18. 连接池监视：监视当前系统数据库连接池状态，可进行分析SQL找出系统性能瓶颈。
+在线用户、定时任务、数据监控（Druid）、服务监控、缓存监控（Redis）
 
-## 在线体验
+### 系统工具（保留自若依框架）
 
-- admin/admin123  
-- 陆陆续续收到一些打赏，为了更好的体验已用于演示服务器升级。谢谢各位小伙伴。
+表单构建、代码生成、系统接口（Swagger）
 
-演示地址：http://vue.ruoyi.vip  
-文档地址：http://doc.ruoyi.vip
+---
 
-## 演示图
+## 技术栈
 
-<table>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/cd1f90be5f2684f4560c9519c0f2a232ee8.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/1cbcf0e6f257c7d3a063c0e3f2ff989e4b3.jpg"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8074972883b5ba0622e13246738ebba237a.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-9f88719cdfca9af2e58b352a20e23d43b12.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-39bf2584ec3a529b0d5a3b70d15c9b37646.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-936ec82d1f4872e1bc980927654b6007307.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-b2d62ceb95d2dd9b3fbe157bb70d26001e9.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d67451d308b7a79ad6819723396f7c3d77a.png"/></td>
-    </tr>	 
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/5e8c387724954459291aafd5eb52b456f53.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/644e78da53c2e92a95dfda4f76e6d117c4b.jpg"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-8370a0d02977eebf6dbf854c8450293c937.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-49003ed83f60f633e7153609a53a2b644f7.png"/></td>
-    </tr>
-	<tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-d4fe726319ece268d4746602c39cffc0621.png"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-c195234bbcd30be6927f037a6755e6ab69c.png"/></td>
-    </tr>
-    <tr>
-        <td><img src="https://oscimg.oschina.net/oscnet/b6115bc8c31de52951982e509930b20684a.jpg"/></td>
-        <td><img src="https://oscimg.oschina.net/oscnet/up-5e4daac0bb59612c5038448acbcef235e3a.png"/></td>
-    </tr>
-</table>
+| 层级 | 技术 | 版本 |
+|---|---|---|
+| 框架 | Spring Boot | 4.0.3 |
+| 语言 | Java | 17 |
+| ORM | MyBatis + MyBatis Plus | 3.x |
+| 数据库 | MySQL | 8.x |
+| 连接池 | Druid | 1.2.28 |
+| 缓存 | Redis | — |
+| 安全 | Spring Security + JWT | — |
+| 前端 | Vue 2 + Element UI | 2.x |
+| 构建 | Maven + Vue CLI | — |
 
+---
 
-## 若依前后端分离交流群
+## 快速开始
 
-QQ群： [![加入QQ群](https://img.shields.io/badge/已满-937441-blue.svg)](https://jq.qq.com/?_wv=1027&k=5bVB1og) [![加入QQ群](https://img.shields.io/badge/已满-887144332-blue.svg)](https://jq.qq.com/?_wv=1027&k=5eiA4DH) [![加入QQ群](https://img.shields.io/badge/已满-180251782-blue.svg)](https://jq.qq.com/?_wv=1027&k=5AxMKlC) [![加入QQ群](https://img.shields.io/badge/已满-104180207-blue.svg)](https://jq.qq.com/?_wv=1027&k=51G72yr) [![加入QQ群](https://img.shields.io/badge/已满-186866453-blue.svg)](https://jq.qq.com/?_wv=1027&k=VvjN2nvu) [![加入QQ群](https://img.shields.io/badge/已满-201396349-blue.svg)](https://jq.qq.com/?_wv=1027&k=5vYAqA05) [![加入QQ群](https://img.shields.io/badge/已满-101456076-blue.svg)](https://jq.qq.com/?_wv=1027&k=kOIINEb5) [![加入QQ群](https://img.shields.io/badge/已满-101539465-blue.svg)](https://jq.qq.com/?_wv=1027&k=UKtX5jhs) [![加入QQ群](https://img.shields.io/badge/已满-264312783-blue.svg)](https://jq.qq.com/?_wv=1027&k=EI9an8lJ) [![加入QQ群](https://img.shields.io/badge/已满-167385320-blue.svg)](https://jq.qq.com/?_wv=1027&k=SWCtLnMz) [![加入QQ群](https://img.shields.io/badge/已满-104748341-blue.svg)](https://jq.qq.com/?_wv=1027&k=96Dkdq0k) [![加入QQ群](https://img.shields.io/badge/已满-160110482-blue.svg)](https://jq.qq.com/?_wv=1027&k=0fsNiYZt) [![加入QQ群](https://img.shields.io/badge/已满-170801498-blue.svg)](https://jq.qq.com/?_wv=1027&k=7xw4xUG1) [![加入QQ群](https://img.shields.io/badge/已满-108482800-blue.svg)](https://jq.qq.com/?_wv=1027&k=eCx8eyoJ) [![加入QQ群](https://img.shields.io/badge/已满-101046199-blue.svg)](https://jq.qq.com/?_wv=1027&k=SpyH2875) [![加入QQ群](https://img.shields.io/badge/已满-136919097-blue.svg)](https://jq.qq.com/?_wv=1027&k=tKEt51dz) [![加入QQ群](https://img.shields.io/badge/已满-143961921-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=0vBbSb0ztbBgVtn3kJS-Q4HUNYwip89G&authKey=8irq5PhutrZmWIvsUsklBxhj57l%2F1nOZqjzigkXZVoZE451GG4JHPOqW7AW6cf0T&noverify=0&group_code=143961921) [![加入QQ群](https://img.shields.io/badge/已满-174951577-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=ZFAPAbp09S2ltvwrJzp7wGlbopsc0rwi&authKey=HB2cxpxP2yspk%2Bo3WKTBfktRCccVkU26cgi5B16u0KcAYrVu7sBaE7XSEqmMdFQp&noverify=0&group_code=174951577) [![加入QQ群](https://img.shields.io/badge/已满-161281055-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Fn2aF5IHpwsy8j6VlalNJK6qbwFLFHat&authKey=uyIT%2B97x2AXj3odyXpsSpVaPMC%2Bidw0LxG5MAtEqlrcBcWJUA%2FeS43rsF1Tg7IRJ&noverify=0&group_code=161281055) [![加入QQ群](https://img.shields.io/badge/已满-138988063-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=XIzkm_mV2xTsUtFxo63bmicYoDBA6Ifm&authKey=dDW%2F4qsmw3x9govoZY9w%2FoWAoC4wbHqGal%2BbqLzoS6VBarU8EBptIgPKN%2FviyC8j&noverify=0&group_code=138988063) [![加入QQ群](https://img.shields.io/badge/已满-151450850-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=DkugnCg68PevlycJSKSwjhFqfIgrWWwR&authKey=pR1Pa5lPIeGF%2FFtIk6d%2FGB5qFi0EdvyErtpQXULzo03zbhopBHLWcuqdpwY241R%2F&noverify=0&group_code=151450850) [![加入QQ群](https://img.shields.io/badge/已满-224622315-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=F58bgRa-Dp-rsQJThiJqIYv8t4-lWfXh&authKey=UmUs4CVG5OPA1whvsa4uSespOvyd8%2FAr9olEGaWAfdLmfKQk%2FVBp2YU3u2xXXt76&noverify=0&group_code=224622315) [![加入QQ群](https://img.shields.io/badge/已满-287842588-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=Nxb2EQ5qozWa218Wbs7zgBnjLSNk_tVT&authKey=obBKXj6SBKgrFTJZx0AqQnIYbNOvBB2kmgwWvGhzxR67RoRr84%2Bus5OadzMcdJl5&noverify=0&group_code=287842588) [![加入QQ群](https://img.shields.io/badge/已满-187944233-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=numtK1M_I4eVd2Gvg8qtbuL8JgX42qNh&authKey=giV9XWMaFZTY%2FqPlmWbkB9g3fi0Ev5CwEtT9Tgei0oUlFFCQLDp4ozWRiVIzubIm&noverify=0&group_code=187944233) [![加入QQ群](https://img.shields.io/badge/已满-228578329-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=G6r5KGCaa3pqdbUSXNIgYloyb8e0_L0D&authKey=4w8tF1eGW7%2FedWn%2FHAypQksdrML%2BDHolQSx7094Agm7Luakj9EbfPnSTxSi2T1LQ&noverify=0&group_code=228578329) [![加入QQ群](https://img.shields.io/badge/已满-191164766-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=GsOo-OLz53J8y_9TPoO6XXSGNRTgbFxA&authKey=R7Uy%2Feq%2BZsoKNqHvRKhiXpypW7DAogoWapOawUGHokJSBIBIre2%2FoiAZeZBSLuBc&noverify=0&group_code=191164766) [![加入QQ群](https://img.shields.io/badge/已满-174569686-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=PmYavuzsOthVqfdAPbo4uAeIbu7Ttjgc&authKey=p52l8%2FXa4PS1JcEmS3VccKSwOPJUZ1ZfQ69MEKzbrooNUljRtlKjvsXf04bxNp3G&noverify=0&group_code=174569686) [![加入QQ群](https://img.shields.io/badge/127358632-blue.svg)](http://qm.qq.com/cgi-bin/qm/qr?_wv=1027&k=M9y5NjAl44lAL_Vh2crmEehZU_PMU6KS&authKey=ZSDz8hEREWSaPuxQV3gEwqGIaGjfRNnkB4rJjf0IvXhrSUGSGwQFmBA%2Boe8HFxyl&noverify=0&group_code=127358632) 点击按钮入群。
+### 环境要求
+
+- JDK 17+
+- MySQL 8.0+
+- Redis（可选，缓存用）
+- Node.js 16+（前端开发）
+- Maven 3.6+
+
+### 1. 数据库初始化
+
+```bash
+# 创建数据库
+mysql -u root -p -e "CREATE DATABASE IF NOT EXISTS \`ry-vue\` DEFAULT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci;"
+
+# 导入初始化脚本
+mysql -u root -p ry-vue < sql/ry_20260417.sql
+```
+
+### 2. 后端启动
+
+```bash
+# 编译打包
+mvn clean package -DskipTests
+
+# 启动
+java -jar ruoyi-admin/target/ruoyi-admin.jar
+
+# 或 IDE 中直接运行 RuoYiApplication.java
+```
+
+默认端口：`8080`  
+默认账号：`admin` / `admin123`
+
+### 3. 前端启动
+
+```bash
+cd ruoyi-ui
+
+# 安装依赖
+npm install
+
+# 启动开发服务器
+npm run dev
+```
+
+前端开发服务器默认运行在 `http://localhost:80`
+
+---
+
+## 数据库表结构
+
+```
+grade (年级表)
+  ├── id           BIGINT PK
+  ├── grade_name   VARCHAR(50)  年级名称
+  ├── grade_code   VARCHAR(20)  年级编码 (UNIQUE)
+  ├── create_time  DATETIME
+  ├── update_time  DATETIME
+  └── deleted      TINYINT      逻辑删除
+
+class (班级表)
+  ├── id           BIGINT PK
+  ├── grade_id     BIGINT FK → grade.id
+  ├── class_name   VARCHAR(50)  班级名称
+  ├── class_code   VARCHAR(20)  班级编码 (UNIQUE)
+  ├── teacher      VARCHAR(50)  班主任
+  ├── create_time  DATETIME
+  ├── update_time  DATETIME
+  └── deleted      TINYINT      逻辑删除
+
+student (学生表)
+  ├── id           BIGINT PK
+  ├── student_no   VARCHAR(30)  学号 (UNIQUE)
+  ├── student_name VARCHAR(50)  学生姓名
+  ├── gender       TINYINT      性别 (1男 2女)
+  ├── age          INT          年龄
+  ├── class_id     BIGINT FK → class.id
+  ├── create_time  DATETIME
+  ├── update_time  DATETIME
+  └── deleted      TINYINT      逻辑删除
+```
+
+---
+
+## 项目结构
+
+```
+xsglxt/
+├── ruoyi-admin/       # 控制层 (Controller)
+│   └── src/main/java/com/ruoyi/web/controller/
+│       ├── business/  # 🆕 业务控制器 (Grade/ClassInfo/Student/Dashboard)
+│       ├── system/    # 系统管理控制器
+│       ├── monitor/   # 监控控制器
+│       └── common/    # 公共控制器
+├── ruoyi-common/      # 公共模块 (Entity, Utils, Annotation)
+│   └── src/main/java/com/ruoyi/common/core/domain/entity/
+│       ├── Grade.java       # 🆕 年级实体
+│       ├── ClassInfo.java   # 🆕 班级实体
+│       └── Student.java     # 🆕 学生实体
+├── ruoyi-framework/   # 框架配置 (Security, MyBatis Plus)
+├── ruoyi-system/      # 业务层 (Service + Mapper)
+│   └── src/main/java/com/ruoyi/system/
+│       ├── mapper/    # 🆕 GradeMapper / ClassInfoMapper / StudentMapper
+│       └── service/   # 🆕 ISysXxxService + impl
+├── ruoyi-ui/          # 前端 Vue 项目
+│   └── src/
+│       ├── views/
+│       │   ├── business/   # 🆕 业务页面 (grade / class / student)
+│       │   ├── system/     # 系统管理页面
+│       │   ├── monitor/    # 监控页面
+│       │   └── index.vue   # ✏️ 首页（统计概览）
+│       └── api/
+│           └── business/   # 🆕 业务 API (grade / classInfo / student)
+├── sql/               # 数据库脚本
+└── pom.xml
+```
+
+> 🆕 = AI 新增 &nbsp;|&nbsp; ✏️ = AI 修改 &nbsp;|&nbsp; 其余 = 保留自若依框架
+
+---
+
+## 开发说明
+
+### AI 驱动开发流程
+
+```
+1. 开发者用自然语言描述需求
+   ↓
+2. Claude Code 读取项目代码理解结构
+   ↓
+3. AI 生成后端 Entity → Mapper → Service → Controller
+   ↓
+4. AI 生成前端 API 层 → Vue 组件页面
+   ↓
+5. AI 直接操作数据库更新菜单配置
+   ↓
+6. 人工审核验收 → git commit
+```
+
+### 本次改动统计
+
+| 类型 | 数量 |
+|---|---|
+| 新增后端 Java 文件 | 13 个 |
+| 新增前端 JS/Vue 文件 | 6 个 |
+| 修改文件 | 1 个（首页） |
+| 数据库菜单新增 | 16 条 |
+| 总代码量 | 约 1200 行 |
+
+全部由 AI 生成，开发者零手写。
+
+---
+
+## 许可证
+
+基于 [若依 (RuoYi)](https://gitee.com/y_project/RuoYi) 框架，本项目代码采用 MIT License 开源。
+
+---
+
+<div align="center">
+
+**🤖 本项目 100% 由 AI 写就，包括你正在读的这句话。**
+
+*Powered by Claude Opus 4.8 + DeepSeek-V4-Pro · Built with Claude Code*
+
+</div>
